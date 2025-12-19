@@ -7,84 +7,72 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Spice&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Spice&family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;font-family:Poppins,sans-serif}
 body{margin:0;color:#fff;overflow-x:hidden;background:#000}
 
-/* ANIMASI */
-.fade-in{animation:fadeIn .9s ease forwards}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-
-/* VIDEO BG */
+/* BG */
 .video-bg{position:fixed;inset:0;z-index:-3}
 .video-bg video{width:100%;height:100%;object-fit:cover}
 .video-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:-2}
 
 /* BANNER */
-.banner{height:140px;background:url("https://files.catbox.moe/rjtx85.png") center/cover no-repeat;position:relative}
-
-/* MUSIC */
-.music-btn{
-  position:absolute;top:10px;right:10px;
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(180,0,0,.85);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;box-shadow:0 0 12px rgba(255,0,0,.6)
-}
+.banner{height:150px;background:url("https://files.catbox.moe/rjtx85.png") center/cover no-repeat;position:relative}
+.music-btn{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;background:rgba(180,0,0,.85);display:flex;align-items:center;justify-content:center;cursor:pointer}
 .music-btn span{font-size:17px}
 
 /* PROFILE */
-.profile{text-align:center;margin-top:-32px;z-index:5;position:relative}
-.profile img{width:66px;height:66px;border-radius:50%;border:2px solid #ff0000}
-.profile h1{font-family:"Bungee Spice";font-size:16px;margin:5px 0 1px}
-.profile p{font-size:11px;opacity:.85}
+.profile{text-align:center;margin-top:-35px;position:relative;z-index:3}
+.profile img{width:70px;height:70px;border-radius:50%;border:2px solid #ff0000;background:#000}
+.profile h1{font-family:"Bungee Spice";font-size:16px;margin:6px 0 2px}
+.profile p{
+  font-family:'Bebas Neue', sans-serif;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  opacity:.9;
+}
 
-/* GRID */
+/* SLIDER */
+.slider-wrapper{position:relative;overflow:hidden;margin-top:10px}
+.slider{display:flex;transition:transform .6s ease}
+.slide{min-width:100%;padding-bottom:20px}
+.slide-title{text-align:center;font-family:"Bungee";font-size:13px;color:#ffb3b3;margin:10px 0}
+
+/* NAV */
+.nav{position:absolute;top:45%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(180,0,0,.85);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;z-index:5}
+.nav.left{left:6px}
+.nav.right{right:6px}
+
 .container{padding:10px;display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
 
-/* CARD */
-.product{
-  background:rgba(180,0,0,.18);
-  backdrop-filter:blur(6px);
-  border-radius:9px;padding:5px;
-  cursor:pointer;opacity:0;transform:translateY(20px);transition:.4s
-}
-.product.show{opacity:1;transform:none}
+.product{background:rgba(180,0,0,.18);backdrop-filter:blur(6px);border-radius:9px;padding:5px;cursor:pointer}
 .product img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px}
 .product h3{font-family:"Bungee";font-size:10.3px;margin:4px 0 1px}
 .price{font-family:"Bungee";font-size:9.4px;color:#ffb3b3}
 
-/* NOTE & FOOTER */
 .note{margin:12px;padding:9px;font-size:10.5px;background:rgba(180,0,0,.22);border-radius:9px}
-.footer{text-align:center;font-size:10.5px;opacity:.75;padding:10px 0 16px}
+.footer{text-align:center;font-size:10.5px;opacity:.75;padding-bottom:16px}
 
 /* MODAL */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:10}
-.modal-content{
-  background:#7a0000;border-radius:14px;
-  max-width:320px;width:100%;padding:14px;
-  animation:fadeIn .4s ease
-}
+.modal-content{background:#7a0000;border-radius:14px;max-width:320px;width:100%;padding:14px}
 .modal-content img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:9px}
 .modal-content h2{font-family:"Bungee";font-size:15px;margin:7px 0 3px}
 .modal-content p{font-size:12px}
-.buy-btn{
-  display:block;background:#ff0000;color:#fff;
-  text-align:center;padding:9px;border-radius:9px;
-  text-decoration:none;font-weight:700;margin-top:7px;font-size:12px
-}
+.buy-btn{display:block;background:#ff0000;color:#fff;text-align:center;padding:9px;border-radius:9px;text-decoration:none;font-weight:700;margin-top:7px;font-size:12px}
 .buy-btn.bot{background:#c40000}
 .buy-btn.ig{background:#a00000}
 .close{text-align:right;font-size:11px;cursor:pointer}
 </style>
 </head>
 
-<body class="fade-in">
+<body>
 
 <audio id="bgMusic" loop>
-  <source src="https://files.catbox.moe/1n0h6s.mp3" type="audio/mpeg">
+  <source src="https://files.catbox.moe/aqxlu1.mp3" type="audio/mpeg">
 </audio>
 
 <div class="video-bg">
@@ -95,59 +83,83 @@ body{margin:0;color:#fff;overflow-x:hidden;background:#000}
 <div class="video-overlay"></div>
 
 <div class="banner">
-  <div class="music-btn" onclick="toggleMusic()">
-    <span id="musicIcon">▶</span>
-  </div>
+  <div class="music-btn" onclick="toggleMusic()"><span id="musicIcon">▶</span></div>
 </div>
 
 <div class="profile">
   <img src="https://files.catbox.moe/t1kbta.jpg">
-  <h1>@ALIFTZYCRT</h1>
-  <p>Digital Product Store</p>
+  <h1>ALIFTZYCRT STORE</h1>
+  <p>ALL PRODUK YANG DI JUAL TUAN ALIP🍓</p>
 </div>
 
-<div class="container">
-  <div class="product" onclick="openProduct('Panel Private','Akses private full dan dilengkapi sistem keamanan anti ddos, harga murmer dan terjangkau, cocok untuk run script bot','https://files.catbox.moe/ljwcf3.jpg','10000')">
-    <img src="https://files.catbox.moe/werxzf.jpg"><h3>Panel Pterodactyl Private</h3><div class="price">Rp 10.000</div>
-  </div>
-  <div class="product" onclick="openProduct('Install Panel','Setup lengkap','https://files.catbox.moe/ybnmww.jpg','25000')">
-    <img src="https://files.catbox.moe/ybnmww.jpg"><h3>Install Panel</h3><div class="price">Rp 25.000</div>
-  </div>
-  <div class="product" onclick="openProduct('Bot WhatsApp','Auto menu','https://files.catbox.moe/ybnmww.jpg','30000')">
-    <img src="https://files.catbox.moe/ybnmww.jpg"><h3>Bot WhatsApp</h3><div class="price">Rp 30.000</div>
-  </div>
-  <div class="product" onclick="openProduct('Script Premium','No enc','https://files.catbox.moe/ybnmww.jpg','20000')">
-    <img src="https://files.catbox.moe/ybnmww.jpg"><h3>Script Premium</h3><div class="price">Rp 20.000</div>
-  </div>
-  <div class="product" onclick="openProduct('Jasa Deploy','Vercel / Railway','https://files.catbox.moe/ybnmww.jpg','15000')">
-    <img src="https://files.catbox.moe/ybnmww.jpg"><h3>Jasa Deploy</h3><div class="price">Rp 15.000</div>
-  </div>
-  <div class="product" onclick="openProduct('Custom Web','UI Premium','https://files.catbox.moe/ybnmww.jpg','50000')">
-    <img src="https://files.catbox.moe/ybnmww.jpg"><h3>Custom Web</h3><div class="price">Rp 50.000</div>
-  </div>
-  <div class="product" onclick="openProduct('Panel Public','Sharing','https://files.catbox.moe/ybnmww.jpg','5000')">
-    <img src="https://files.catbox.moe/ybnmww.jpg"><h3>Panel Public</h3><div class="price">Rp 5.000</div>
-  </div>
-  <div class="product" onclick="openProduct('Maintenance','Bulanan','https://files.catbox.moe/ybnmww.jpg','10000')">
-    <img src="https://files.catbox.moe/ybnmww.jpg"><h3>Maintenance</h3><div class="price">Rp 10.000</div>
+<div class="slider-wrapper">
+  <div class="nav left" onclick="prevSlide()">❮</div>
+  <div class="nav right" onclick="nextSlide()">❯</div>
+
+  <div class="slider" id="slider">
+
+<!-- HOSTING 8 -->
+<div class="slide">
+<div class="slide-title">🚀 HOSTING</div><div class="container">
+<div class="product" onclick="openProduct('Panel Private','Hosting private full anti ddos, Garansi 3 kali, Akses penggunaan 1 bulan, run fast sistem, cocok untuk run script bot, mendapatkan bonus Patner Pribadi','https://files.catbox.moe/fsdpuj.png','10000')"><img src="https://files.catbox.moe/v3bp19.jpg"><h3>Panel Private</h3><div class="price">Rp 10.000</div></div>
+<div class="product" onclick="openProduct('Panel Public','Panel sharing murah','https://files.catbox.moe/pfnlq2.png','5000')"><img src="https://files.catbox.moe/x31ut0.jpg"><h3>Panel Public</h3><div class="price">Rp 5.000</div></div>
+<div class="product" onclick="openProduct('APK MALWARE⚠️','Lock layar hp korban, free rename apk, bisa di coha dulu, bisa dapat duit dari hasil send virus, layar tetap terkunci meskipun perangkat di reset!!!','https://files.catbox.moe/lfw5qq.jpg','30000')"><img src="https://files.catbox.moe/trwd5a.jpg"><h3>APK LOCK SCREEN DENGAN PIN DAN TAMPILAN EPIC</h3><div class="price">Rp 35.000</div></div>
+<div class="product" onclick="openProduct('APK DDOS','cocok untuk ddos web sekolah dan pemerintah atau server panel pterodactyl, 100% situs web down, work anti gimic, aman dan bisa di custom tampilan','https://files.catbox.moe/41rihl.jpg','60000')"><img src="https://files.catbox.moe/iw7w2n.jpg"><h3>APK DDOS ATTACK</h3><div class="price">Rp 30.000</div></div>
+<div class="product" onclick="openProduct('PT PRIVATE ALIFTZY','Get All murid, benefit jibun, full pengajaran, belajar bareng, GET panel Private dan sc premium','https://files.catbox.moe/pe1h2o.jpg','15000')"><img src="https://files.catbox.moe/rzvgsa.jpg"><h3>PT PRIVATE ALIFTZY</h3><div class="price">Rp 20.000</div></div>
+<div class="product" onclick="openProduct('HTML LOGIN KVVIP','Dilengkapin sistem keamanan anti ddos dan akses kamera,lokasi dan info perangkat yang di pakai pengunjung web, yang langsung terhubung menggunakan bot telegram, free rename desain','https://files.catbox.moe/n5y5sh.jpg','15000')"><img src="https://files.catbox.moe/jvot3s.jpg"><h3>HTML LOGIN KVVIP</h3><div class="price">Rp 40.000</div></div>
+<div class="product" onclick="openProduct('SCRIPT BOT OBF NO ENC','JAVASCRIPT TER ENCRYPT DENGAN HARD DAN TIDAK DAPAT DI TEMBUS, TAMPILAN BAGUS BISA DI BILANG KECE, FREE RENAME ATAU BEBAS RENAME SCRIPT','https://files.catbox.moe/qdviuk.png','15000')"><img src="https://files.catbox.moe/32fhpu.png"><h3>SCRIPT BOT OBF TELEGRAM</h3><div class="price">Rp 15.000</div></div>
+<div class="product" onclick="openProduct('MURHTML PRIVATE','Mendapatkan semua html yang gw bikin,Diajarin semua tentang html sampe bisa, di ajarin bikin apk melalui web, di ajarin decrypt html, bebas jual html yang gw share asal ngotak','https://files.catbox.moe/2ophor.jpg','15000')"><img src="https://files.catbox.moe/5t1cht.jpg"><h3>MURID HTML PRIVATE</h3><div class="price">Rp 25.000</div></div>
+<div class="product" onclick="openProduct('MURID MALWARE PRIVATE','Mendapatkan semua apk malware dan phising, di kasih tau cara rename apk nya, bebas jual asal ngotak, di kasih tau cara bikin apk malware','https://files.catbox.moe/bsw6wk.jpg','15000')"><img src="https://files.catbox.moe/o4mv5e.jpg"><h3>MURID MALWARE PRIVATE</h3><div class="price">Rp 20.000</div></div>
+<div class="product" onclick="openProduct('HTML PRIVATE KVVIP','Mempunyai tampilan premium, private dan tahan terhadap ddos attack, memiliki sistem keamanan masing masing, 100% murni buatan sendiri🗿','https://files.catbox.moe/tpea4w.png','10000')"><img src="https://files.catbox.moe/sgup23.jpg"><h3>HTLML DAN TOOLS KVVIP</h3><div class="price">Rp 50.000</div></div>
+</div></div>
+
+<!-- TOP UP GAME 8 -->
+<div class="slide">
+<div class="slide-title">🎮 TOP UP GAME</div><div class="container">
+<div class="product" onclick="openProduct('ML Diamond','Aman dan terjangkau, diamond cepat masuk, anti ilegal, proses fast, harga murmer','https://files.catbox.moe/xdilgd.jpg','10000')"><img src="https://files.catbox.moe/yv8ft1.jpg"><h3>ML Diamond</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('FF Diamond','Proses fast, aman anti ilegal, harga murmer dan terjangkau','https://files.catbox.moe/vlqv5a.jpg','10000')"><img src="https://files.catbox.moe/889d8i.jpg"><h3>FF Diamond</h3><div class="price">KLICK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('PUBG UC','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/458dov.jpg','15000')"><img src="https://files.catbox.moe/bqr1ug.jpg"><h3>PUBG UC</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('CODM CP','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/993btt.jpg','15000')"><img src="https://files.catbox.moe/yx15z6.png"><h3>CODM CP</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('Valorant Point','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/tnntin.png','15000')"><img src="https://files.catbox.moe/e4ln9d.jpg"><h3>Valorant Point</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('Genshin Genesis','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/5tztfd.png','20000')"><img src="https://files.catbox.moe/cxxyb1.png"><h3>Genshin Genesis</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('AOV Voucher','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/rmn1co.png','20000')"><img src="https://files.catbox.moe/7vtdyk.jpg"><h3>AOV Voucher</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('Arena breackout','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/hnsncp.png','20000')"><img src="https://files.catbox.moe/er5e1z.jpg"><h3>Arena breackout</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('EA sports mobile','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/dz70qz.png','20000')"><img src="https://files.catbox.moe/97h6co.jpg"><h3>EA sports mobile</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+<div class="product" onclick="openProduct('HOK Token','Berkualitas, harga murmer dan terjangkau, proses fast, aman dan tidak ilegal','https://files.catbox.moe/uupnvf.png','12000')"><img src="https://files.catbox.moe/p84yhw.jpg"><h3>HOK Token</h3><div class="price">KLIK UNTUK LIHAT HARGA</div></div>
+</div></div>
+
+<!-- APP PREMIUM 8 -->
+<div class="slide">
+<div class="slide-title">💎 APP PREMIUM</div><div class="container">
+<div class="product" onclick="openProduct('Canva Pro','Unlock all template and all elemen, tidak ada batas penggunaan, aman dan harga murmer, Bergaransi','https://files.catbox.moe/g5e3a3.jpg','16000')"><img src="https://files.catbox.moe/ts9ixu.jpg"><h3>Canva Pro</h3><div class="price">Rp 16.000</div></div>
+<div class="product" onclick="openProduct('Capcut Pro','Unlock all fitur, bebas iklan, free resolusi 4k unli, private and sharing account, Hapus watermark','https://files.catbox.moe/fqrb7l.jpg','30000')"><img src="https://files.catbox.moe/zi8xjz.jpg"><h3>Capcut Pro</h3><div class="price">Rp 30.000</div></div>
+<div class="product" onclick="openProduct('Alight Motion','Akses private and sharing, unlock all efek and overlay, work preset 5mb dan alight link, bergaransi 100%','https://files.catbox.moe/xggkuo.jpg','10000')"><img src="https://files.catbox.moe/ht8dvo.jpg"><h3>Alight Motion</h3><div class="price">Rp 10.000</div></div>
+<div class="product" onclick="openProduct('Spotify Premium','Unlock all fitur, bebas iklan, 100% aman dan bukan apk mod, harga murmer dan terjangkau','https://files.catbox.moe/7rdrja.jpg','15000')"><img src="https://files.catbox.moe/qf27by.jpg"><h3>Spotify Premium</h3><div class="price">Rp 15.000</div></div>
+<div class="product" onclick="openProduct('Netflix','Unlock All fitur, Harga murmer dan terjangkau, 100% bukan app mod dan tidak ilegal','https://files.catbox.moe/v8fbb4.jpg','25000')"><img src="https://files.catbox.moe/2t2v1l.jpg"><h3>Netflix</h3><div class="price">Rp 19.000</div></div>
+<div class="product" onclick="openProduct('YouTube Premium','Tonton dan dengar video di saat layar mati, bebas iklan, unlock resolusi prem, aman dan harga murmer,bergaranai setiap pembelian','https://files.catbox.moe/w2884j.jpg','18000')"><img src="https://files.catbox.moe/q0o2sj.jpg"><h3>YouTube Premium</h3><div class="price">Rp 18.000</div></div>
+<div class="product" onclick="openProduct('Bstation prem','Unlock All eps and fitur, Aman dan ada garansi, 100℅ bukan app mod','https://files.catbox.moe/j3cih4.jpg','20000')"><img src="https://files.catbox.moe/uriprn.jpg"><h3>Bstation Premium</h3><div class="price">Rp 10.000</div></div>
+<div class="product" onclick="openProduct('Disney + Hostar','Unlock All eps and fitur, Aman dan ada garansi, 100℅ bukan app mod, Anti lag','https://files.catbox.moe/eip8zm.jpg','20000')"><img src="https://files.catbox.moe/neyo0l.jpg"><h3>Disney + Hostar</h3><div class="price">Rp 20.000</div></div>
+<div class="product" onclick="openProduct('Viu prem','Unlock All eps and fitur, Aman dan ada garansi, 100℅ bukan app mod, bebas iklan','https://files.catbox.moe/7vefjv.jpg','20000')"><img src="https://files.catbox.moe/it0lc6.jpg"><h3>Viu Premium</h3><div class="price">Rp 14.000</div></div>
+<div class="product" onclick="openProduct('IQIYI premium','Unlock fitur, Bebas iklan, Keanggotaan 1 bulan, harga murmer dan terjangkau','https://files.catbox.moe/zhyo9i.jpg','20000')"><img src="https://files.catbox.moe/rheo5l.jpg"><h3>IQIYI PREMIUM</h3><div class="price">Rp 18.000</div></div>
+</div></div>
+
   </div>
 </div>
 
-<div class="note">⚠️ Konfirmasi stok sebelum order.</div>
+<div class="note">NOTE: 𝙎𝙀𝘽𝙀𝙇𝙐𝙈 𝙊𝙍𝘿𝙀𝙍 𝙃𝘼𝙍𝘼𝙋 𝙏𝘼𝙉𝙔𝘼𝙆𝘼𝙉 𝘿𝙐𝙇𝙐 𝙎𝙏𝙊𝙆 𝘼𝘿𝘼 𝘼𝙏𝘼𝙐 𝙏𝙄𝘿𝘼𝙆 𝘿𝙄 𝙊𝙈 𝘼𝙇𝙄𝙋, 𝙆𝘼𝙍𝙀𝙉𝘼 𝙎𝙏𝙊𝙆 𝙇𝙄𝙈𝙄𝙏 𝘿𝘼𝙉 𝙃𝘼𝙍𝙂𝘼 𝘽𝙄𝙎𝘼 𝘽𝙀𝙍𝙐𝘽𝘼𝙃 𝙆𝘼𝙋𝘼𝙉𝙋𝙐𝙉⚠️ 𝙎𝙀𝙏𝙄𝘼𝙋 𝙋𝙀𝙈𝘽𝙀𝙇𝙄𝘼𝙉 𝘼𝘿𝘼 𝙂𝘼𝙍𝘼𝙉𝙎𝙄 𝙁𝙐𝙇𝙇💢 𝙂𝘼𝙎 𝘼𝙔𝙊 𝙅𝘼𝙅𝘼𝙉 𝘿𝙄 𝘼𝙇𝙄𝙁𝙏𝙕𝙔𝙎𝙏𝙊𝙍𝙀🌝</div>
 <div class="footer">© Created by <b>Aliftzy</b></div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <div class="close" onclick="closeModal()">✖ Close</div>
-    <img id="modalImg">
-    <h2 id="modalTitle"></h2>
-    <p id="modalDesc"></p>
-
-    <a id="buyTelegram" class="buy-btn" target="_blank">BUY VIA TELEGRAM</a>
-    <a id="buyBot" class="buy-btn bot" target="_blank">BUY VIA BOT TELEGRAM</a>
-    <a id="buyIG" class="buy-btn ig" target="_blank">BUY VIA INSTAGRAM</a>
-  </div>
+<div class="modal-content">
+<div class="close" onclick="closeModal()">✖ Close</div>
+<img id="modalImg">
+<h2 id="modalTitle"></h2>
+<p id="modalDesc"></p>
+<a id="buyTelegram" class="buy-btn" target="_blank">BUY VIA TELEGRAM</a>
+<a id="buyBot" class="buy-btn bot" target="_blank">BUY VIA BOT TELEGRAM</a>
+<a id="buyIG" class="buy-btn ig" target="_blank">BUY VIA INSTAGRAM</a>
+</div>
 </div>
 
 <script>
@@ -155,39 +167,30 @@ const telegramUser="Aliftzycrt2";
 const telegramBot="alifftzycrt_bot";
 const instagram="eks_aipp23";
 
+let idx=0;
+const slider=document.getElementById("slider");
+const totalSlides=document.querySelectorAll(".slide").length;
+
+function nextSlide(){idx=(idx+1)%totalSlides;slider.style.transform=`translateX(-${idx*100}%)`}
+function prevSlide(){idx=(idx-1+totalSlides)%totalSlides;slider.style.transform=`translateX(-${idx*100}%)`}
+setInterval(nextSlide,5000);
+
 const music=document.getElementById("bgMusic");
 const icon=document.getElementById("musicIcon");
-
-function toggleMusic(){
-  music.paused ? (music.play(),icon.innerText="⏸") : (music.pause(),icon.innerText="▶");
-}
+function toggleMusic(){music.paused?(music.play(),icon.innerText="⏸"):(music.pause(),icon.innerText="▶")}
 
 function openProduct(title,desc,img,price){
-  modal.style.display="flex";
-  modalTitle.innerText=title;
-  modalDesc.innerText=desc;
-  modalImg.src=img;
+  document.getElementById("modalTitle").innerText=title;
+  document.getElementById("modalDesc").innerText=desc;
+  document.getElementById("modalImg").src=img;
+  document.getElementById("modal").style.display="flex";
 
-  const text = encodeURIComponent(
-    `Halo, saya mau beli:\n${title}\nHarga: Rp ${price}`
-  );
-
-  buyTelegram.href = `https://t.me/${telegramUser}?text=${text}`;
-  buyBot.href      = `https://t.me/${telegramBot}?text=${text}`;
-  buyIG.href       = `https://ig.me/m/${instagram}`;
+  const text=encodeURIComponent(`Halo, saya mau beli:\n${title}\nHarga: Rp ${price}`);
+  document.getElementById("buyTelegram").href=`https://t.me/${telegramUser}?text=${text}`;
+  document.getElementById("buyBot").href=`https://t.me/${telegramBot}?text=${text}`;
+  document.getElementById("buyIG").href=`https://ig.me/m/${instagram}`;
 }
-
-function closeModal(){modal.style.display="none"}
-
-const cards=document.querySelectorAll(".product");
-window.addEventListener("scroll",()=>{
-  cards.forEach(c=>{
-    if(c.getBoundingClientRect().top<innerHeight-50){
-      c.classList.add("show");
-    }
-  });
-});
+function closeModal(){document.getElementById("modal").style.display="none"}
 </script>
-
 </body>
 </html>
